@@ -19,6 +19,21 @@
             "date": 1689325507274,
             "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-15-error.log",
             "hash": "71b44d5c1403f534b72bdfbc5277d2db9dc67e2c5555770e1147bfe457103130"
+        },
+        {
+            "date": 1689328843761,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-16-error.log",
+            "hash": "931506bf713997eaf9c92acd74b8dc110abf75308613c6847a7bbc0d06908003"
+        },
+        {
+            "date": 1689335995232,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-17-error.log",
+            "hash": "9c63bf20db2f33121b137a686f17b2f4bc42e33e6cf88566cb89b77e489c606f"
+        },
+        {
+            "date": 1689336014559,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-18-error.log",
+            "hash": "11e731a189f95de7bfece24a4edd7294aa53381bd48d5c305c2af82c05fb07b2"
         }
     ],
     "hashType": "sha256"

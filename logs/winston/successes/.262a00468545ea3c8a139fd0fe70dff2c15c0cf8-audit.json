@@ -19,6 +19,21 @@
             "date": 1689325507271,
             "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-15-success.log",
             "hash": "9645cc6dbf63187308406d71ed4964ee58e2e7fb8c698b952cba448cee3a8e8a"
+        },
+        {
+            "date": 1689328843739,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-16-success.log",
+            "hash": "5f112ab65c982c77ad434d6282025ab40d89db0b2ba98fc4ebdd64dd548f3e46"
+        },
+        {
+            "date": 1689335995225,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-17-success.log",
+            "hash": "b58fb0aeeaa9cf026f76c9e64c5110f5c096d8ded874706a02f2935dc7b99b4b"
+        },
+        {
+            "date": 1689336014552,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-18-success.log",
+            "hash": "c9b4e2289179af8f57065db59e06f184ef63ec9b614f45168be7c7d9ef99dc89"
         }
     ],
     "hashType": "sha256"
