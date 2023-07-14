@@ -1,15 +1,15 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 14
-    },
-    "auditLog": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/.829f1eb1305966406cd0a10d02c6f57d107dff15-audit.json",
-    "files": [
-        {
-            "date": 1689315681576,
-            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-12-error.log",
-            "hash": "78d914f256a95e24d0e609ea8d41f3f9953ec46aaea69075986b5562c7de4c24"
-        }
-    ],
-    "hashType": "sha256"
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/.829f1eb1305966406cd0a10d02c6f57d107dff15-audit.json",
+  "files": [
+    {
+      "date": 1689315681576,
+      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-14-07-12-error.log",
+      "hash": "78d914f256a95e24d0e609ea8d41f3f9953ec46aaea69075986b5562c7de4c24"
+    }
+  ],
+  "hashType": "sha256"
 }

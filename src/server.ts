@@ -4,6 +4,11 @@ import config from './config';
 import { errorLogger, logger } from './shared/logger';
 import { Server } from 'http';
 
+process.on('uncaughtException', error => {
+  errorLogger.error(error);
+  process.exit(1);
+});
+
 let server: Server;
 
 async function bootstrap() {
@@ -31,3 +36,10 @@ async function bootstrap() {
 }
 
 bootstrap();
+
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM is received');
+  if (server) {
+    server.close();
+  }
+});
