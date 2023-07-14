@@ -7,6 +7,8 @@ import pick from '../../../shared/pick';
 import { bookFilterableFields } from '../../../constants/filterableFields';
 import { paginationFields } from '../../../constants/pagination';
 import { IBook } from './book.interface';
+import { Book } from './book.model';
+import ApiError from '../../../errors/ApiError';
 // import { CowService } from './cow.service';
 // import { ICow } from './cow.interface';
 // import pick from '../../../shared/pick';
@@ -58,30 +60,30 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// const updateCow = catchAsync(async (req: Request, res: Response) => {
-//   const id = req.params.id;
-//   const updatedData = req.body;
+const updateBook = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const updatedData = req.body;
 
-//   const isCowExist = await Cow.findById(id);
-//   if (!isCowExist) {
-//     throw new ApiError(httpStatus.NOT_FOUND, 'Cow does not exist');
-//   }
+  const isBookExist = await Book.findById(id);
+  if (!isBookExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Book does not exist');
+  }
 
-//   const validUser = await Cow.findById(id).populate('seller');
+  // const validUser = await Book.findById(id).populate('user');
 
-//   if (validUser?.seller?._id?.toString() !== req?.user?._id) {
-//     throw new ApiError(httpStatus.NOT_FOUND, 'This is not your cow');
-//   }
+  // if (validUser?.user?._id?.toString() !== req?.user?._id) {
+  //   throw new ApiError(httpStatus.NOT_FOUND, 'This is not your Book');
+  // }
 
-//   const result = await CowService.updateCow(id, updatedData);
+  const result = await BookService.updateBook(id, updatedData);
 
-//   sendResponse<ICow>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow Updated successfully',
-//     data: result,
-//   });
-// });
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Book Updated successfully',
+    data: result,
+  });
+});
 
 // const deleteCow = catchAsync(async (req: Request, res: Response) => {
 //   const id = req.params.id;
@@ -111,6 +113,7 @@ export const BookController = {
   createBook,
   getAllBooks,
   getSingleBook,
+  updateBook,
   //   getAllCows,
   //   getSingleCow,
   //   deleteCow,

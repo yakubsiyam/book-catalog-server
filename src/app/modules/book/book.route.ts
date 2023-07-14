@@ -18,7 +18,7 @@ router.get('/', BookController.getAllBooks);
 
 router.get('/:id', BookController.getSingleBook);
 
-// router.patch('/:id', auth(ENUM_USER_ROLE.SELLER), CowController.updateCow);
+router.patch('/:id', BookController.updateBook);
 
 // router.delete('/:id', auth(ENUM_USER_ROLE.SELLER), CowController.deleteCow);
 
