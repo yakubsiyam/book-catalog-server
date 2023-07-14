@@ -19,7 +19,7 @@ router.get('/', BookController.getAllBooks);
 
 router.get('/:id', BookController.getSingleBook);
 
-router.patch('/:id', BookController.updateBook);
+router.patch('/:id', auth(), BookController.updateBook);
 
 router.delete('/:id', auth(), BookController.deleteBook);
 
