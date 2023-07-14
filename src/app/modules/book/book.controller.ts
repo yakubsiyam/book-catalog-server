@@ -93,11 +93,17 @@ const deleteBook = catchAsync(async (req: Request, res: Response) => {
     throw new ApiError(httpStatus.NOT_FOUND, 'Book does not exist');
   }
 
-  // const validUser = await Book.findById(id).populate('user');
+  console.log(req.params);
 
-  // if (validUser?.user?._id?.toString() !== req?.user?._id) {
-  //   throw new ApiError(httpStatus.NOT_FOUND, 'This is not your book');
-  // }
+  const validUser = await Book.findById(id).populate('user');
+
+  console.log(validUser);
+  console.log(req?.user, 'ami hoilam user');
+
+  if (validUser?.user?._id?.toString() !== req?.user?._id) {
+    // if (validUser?.user?._id?.toString()) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'This is not your book');
+  }
 
   const result = await BookService.deleteBook(id);
 
