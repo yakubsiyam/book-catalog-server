@@ -32,11 +32,11 @@ export const UserSchema = new Schema<IUser, UserModel>(
   },
 );
 
-// UserSchema.statics.isUserExist = async function (
-//   email: string,
-// ): Promise<Pick<IUser, 'email' | 'password' | '_id'> | null> {
-//   return await User.findOne({ email }, { email: 1, password: 1 });
-// };
+UserSchema.statics.isUserExist = async function (
+  email: string,
+): Promise<Pick<IUser, 'email' | 'password' | '_id'> | null> {
+  return await User.findOne({ email }, { email: 1, password: 1 });
+};
 
 UserSchema.statics.isPasswordMatched = async function (
   givenPassword: string,

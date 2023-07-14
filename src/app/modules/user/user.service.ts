@@ -8,11 +8,13 @@ import ApiError from '../../../errors/ApiError';
 //   IRefreshTokenResponse,
 // } from './authAdmin.interface';
 // import { CreateAdmin } from './authAdmin.model';
-// import { Secret } from 'jsonwebtoken';
+import { Secret } from 'jsonwebtoken';
 // import config from '../../../config';
 // import { jwtHelpers } from '../../../helpers/jwtHelpers';
 import { User } from './user.model';
-import { IUser } from './user.interface';
+import { ILoginUserResponse, IUser } from './user.interface';
+import config from '../../../config';
+import { jwtHelpers } from '../../../helpers/jwtHelpers';
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
   let newUserAllData = null;
@@ -41,45 +43,43 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
   return newUserAllData;
 };
 
-// const loginAdmin = async (
-//   payload: ILoginAdmin,
-// ): Promise<IloginAdminResponse> => {
-//   const { phoneNumber, password } = payload;
+const loginUser = async (payload: IUser): Promise<ILoginUserResponse> => {
+  const { email, password } = payload;
 
-//   // check admin exist
-//   const isAdminExist = await CreateAdmin.isAdminExist(phoneNumber);
+  // check admin exist
+  const isUserExist = await User.isUserExist(email);
 
-//   if (!isAdminExist) {
-//     throw new ApiError(httpStatus.NOT_FOUND, 'Admin does not Exist');
-//   }
+  if (!isUserExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User does not Exist');
+  }
 
-//   if (
-//     isAdminExist.password &&
-//     !(await CreateAdmin.isPasswordMatched(password, isAdminExist.password))
-//   ) {
-//     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect');
-//   }
+  if (
+    isUserExist.password &&
+    !(await User.isPasswordMatched(password, isUserExist.password))
+  ) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect');
+  }
 
-//   // create access token & refresh token
-//   const { phoneNumber: adminPhoneNumber, role, _id } = isAdminExist;
+  // create access token & refresh token
+  const { email: userEmail, _id } = isUserExist;
 
-//   const accessToken = jwtHelpers.createToken(
-//     { adminPhoneNumber, role, _id },
-//     config.jwt.secret as Secret,
-//     config.jwt.expires_in as string,
-//   );
+  const accessToken = jwtHelpers.createToken(
+    { userEmail, _id },
+    config.jwt.secret as Secret,
+    config.jwt.expires_in as string,
+  );
 
-//   const refreshToken = jwtHelpers.createToken(
-//     { adminPhoneNumber, role, _id },
-//     config.jwt.refresh_secret as Secret,
-//     config.jwt.refresh_expires_in as string,
-//   );
+  const refreshToken = jwtHelpers.createToken(
+    { userEmail, _id },
+    config.jwt.refresh_secret as Secret,
+    config.jwt.refresh_expires_in as string,
+  );
 
-//   return {
-//     accessToken,
-//     refreshToken,
-//   };
-// };
+  return {
+    accessToken,
+    refreshToken,
+  };
+};
 
 // const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 //   // verify Token
@@ -118,5 +118,5 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
 
 export const AuthUserService = {
   createUser,
-  //   loginAdmin,
+  loginUser,
 };

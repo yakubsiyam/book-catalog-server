@@ -7,13 +7,13 @@ export type IUser = {
   _id?: string;
 };
 
-export type IloginAdminResponse = {
+export type ILoginUserResponse = {
   accessToken: string;
   refreshToken?: string;
 };
 
 export type UserModel = {
-  isAdminExist(
+  isUserExist(
     email: string,
   ): Promise<Pick<IUser, 'email' | 'password' | '_id'>>;
 
