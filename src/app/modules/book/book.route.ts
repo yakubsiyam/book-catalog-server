@@ -16,11 +16,7 @@ router.post(
 
 router.get('/', BookController.getAllBooks);
 
-// router.get(
-//   '/:id',
-//   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.BUYER, ENUM_USER_ROLE.SELLER),
-//   CowController.getSingleCow
-// );
+router.get('/:id', BookController.getSingleBook);
 
 // router.patch('/:id', auth(ENUM_USER_ROLE.SELLER), CowController.updateCow);
 

@@ -45,18 +45,18 @@ const getAllBooks = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// const getSingleCow = catchAsync(async (req: Request, res: Response) => {
-//   const id = req.params.id;
+const getSingleBook = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
 
-//   const result = await CowService.getSingleCow(id);
+  const result = await BookService.getSingleBook(id);
 
-//   sendResponse<ICow>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow retrieved successfully',
-//     data: result,
-//   });
-// });
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Cow retrieved successfully',
+    data: result,
+  });
+});
 
 // const updateCow = catchAsync(async (req: Request, res: Response) => {
 //   const id = req.params.id;
@@ -110,6 +110,7 @@ const getAllBooks = catchAsync(async (req: Request, res: Response) => {
 export const BookController = {
   createBook,
   getAllBooks,
+  getSingleBook,
   //   getAllCows,
   //   getSingleCow,
   //   deleteCow,
