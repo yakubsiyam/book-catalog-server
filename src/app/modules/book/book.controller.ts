@@ -85,37 +85,34 @@ const updateBook = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-// const deleteCow = catchAsync(async (req: Request, res: Response) => {
-//   const id = req.params.id;
+const deleteBook = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
 
-//   const isCowExist = await Cow.findById(id);
-//   if (!isCowExist) {
-//     throw new ApiError(httpStatus.NOT_FOUND, 'Cow does not exist');
-//   }
+  const isBookExist = await Book.findById(id);
+  if (!isBookExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Book does not exist');
+  }
 
-//   const validUser = await Cow.findById(id).populate('seller');
+  // const validUser = await Book.findById(id).populate('user');
 
-//   if (validUser?.seller?._id?.toString() !== req?.user?._id) {
-//     throw new ApiError(httpStatus.NOT_FOUND, 'This is not your cow');
-//   }
+  // if (validUser?.user?._id?.toString() !== req?.user?._id) {
+  //   throw new ApiError(httpStatus.NOT_FOUND, 'This is not your book');
+  // }
 
-//   const result = await CowService.deleteCow(id);
+  const result = await BookService.deleteBook(id);
 
-//   sendResponse<ICow>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow Deleted Successfully',
-//     data: result,
-//   });
-// });
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Book Deleted Successfully',
+    data: result,
+  });
+});
 
 export const BookController = {
   createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
-  //   getAllCows,
-  //   getSingleCow,
-  //   deleteCow,
-  //   updateCow,
+  deleteBook,
 };

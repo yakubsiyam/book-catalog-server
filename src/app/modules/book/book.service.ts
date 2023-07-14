@@ -133,22 +133,19 @@ const updateBook = async (
   return result;
 };
 
-// const deleteCow = async (id: string): Promise<ICow | null> => {
-//   const result = await Cow.findByIdAndDelete(
-//     { _id: id },
-//     { new: true }
-//   ).populate('seller');
+const deleteBook = async (id: string): Promise<IBook | null> => {
+  const result = await Book.findByIdAndDelete(
+    { _id: id },
+    { new: true },
+  ).populate('user');
 
-//   return result;
-// };
+  return result;
+};
 
 export const BookService = {
   createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
-  //   getAllCows,
-  //   getSingleCow,
-  //   deleteCow,
-  //   updateCow,
+  deleteBook,
 };

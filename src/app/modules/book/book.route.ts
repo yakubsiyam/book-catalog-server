@@ -20,6 +20,6 @@ router.get('/:id', BookController.getSingleBook);
 
 router.patch('/:id', BookController.updateBook);
 
-// router.delete('/:id', auth(ENUM_USER_ROLE.SELLER), CowController.deleteCow);
+router.delete('/:id', BookController.deleteBook);
 
 export const BookRoutes = router;
