@@ -3,6 +3,10 @@ import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 import { BookService } from './book.service';
+import pick from '../../../shared/pick';
+import { bookFilterableFields } from '../../../constants/filterableFields';
+import { paginationFields } from '../../../constants/pagination';
+import { IBook } from './book.interface';
 // import { CowService } from './cow.service';
 // import { ICow } from './cow.interface';
 // import pick from '../../../shared/pick';
@@ -25,21 +29,21 @@ const createBook: RequestHandler = catchAsync(
   },
 );
 
-// const getAllCows = catchAsync(async (req: Request, res: Response) => {
-//   const filters = pick(req.query, cowFilterableFields);
+const getAllBooks = catchAsync(async (req: Request, res: Response) => {
+  const filters = pick(req.query, bookFilterableFields);
 
-//   const paginationOption = pick(req.query, paginationFields);
+  const paginationOption = pick(req.query, paginationFields);
 
-//   const result = await CowService.getAllCows(filters, paginationOption);
+  const result = await BookService.getAllBooks(filters, paginationOption);
 
-//   sendResponse<ICow[]>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cows retrieved successfully',
-//     meta: result.meta,
-//     data: result.data,
-//   });
-// });
+  sendResponse<IBook[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Books retrieved successfully',
+    meta: result.meta,
+    data: result.data,
+  });
+});
 
 // const getSingleCow = catchAsync(async (req: Request, res: Response) => {
 //   const id = req.params.id;
@@ -105,6 +109,7 @@ const createBook: RequestHandler = catchAsync(
 
 export const BookController = {
   createBook,
+  getAllBooks,
   //   getAllCows,
   //   getSingleCow,
   //   deleteCow,

@@ -14,11 +14,7 @@ router.post(
   BookController.createBook,
 );
 
-// router.get(
-//   '/',
-//   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.BUYER, ENUM_USER_ROLE.SELLER),
-//   CowController.getAllCows
-// );
+router.get('/', BookController.getAllBooks);
 
 // router.get(
 //   '/:id',

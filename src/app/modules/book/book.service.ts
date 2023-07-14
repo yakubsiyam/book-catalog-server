@@ -10,9 +10,16 @@ import httpStatus from 'http-status';
 // } from '../../../interfaces/pagination';
 // import { cowSearchableFields } from '../../../constants/searchableFields';
 // import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { IBook } from './book.interface';
+import { IBook, IBookFilter } from './book.interface';
 import { User } from '../user/user.model';
 import { Book } from './book.model';
+import {
+  IGenericResponse,
+  IPaginationOption,
+} from '../../../interfaces/pagination';
+import { bookSearchableFields } from '../../../constants/searchableFields';
+import { paginationHelpers } from '../../../helpers/paginationHelpers';
+import { SortOrder } from 'mongoose';
 
 const createBook = async (book: IBook): Promise<IBook | null> => {
   const userDetails = await User.findById(book.user);
@@ -54,86 +61,61 @@ const createBook = async (book: IBook): Promise<IBook | null> => {
   return newBookAllData;
 };
 
-// const getAllCows = async (
-//   filters: ICowFilter,
-//   paginationOption: IPaginationOption
-// ): Promise<IGenericResponse<ICow[]>> => {
-//   const { searchTerm, minPrice, maxPrice, ...filtersData } = filters;
+const getAllBooks = async (
+  filters: IBookFilter,
+  paginationOption: IPaginationOption,
+): Promise<IGenericResponse<IBook[]>> => {
+  const { searchTerm, ...filtersData } = filters;
 
-//   const andCondition = [];
+  const andCondition = [];
 
-//   if (searchTerm) {
-//     andCondition.push({
-//       $or: cowSearchableFields.map(field => ({
-//         [field]: {
-//           $regex: searchTerm,
-//           $options: 'i',
-//         },
-//       })),
-//     });
-//   }
+  if (searchTerm) {
+    andCondition.push({
+      $or: bookSearchableFields.map(field => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: 'i',
+        },
+      })),
+    });
+  }
 
-//   if (minPrice !== undefined) {
-//     andCondition.push({
-//       price: {
-//         $gte: minPrice,
-//       },
-//     });
-//   }
+  if (Object.keys(filtersData).length) {
+    andCondition.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
 
-//   if (maxPrice !== undefined) {
-//     andCondition.push({
-//       price: {
-//         $lte: maxPrice,
-//       },
-//     });
-//   }
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOption);
 
-//   if (minPrice !== undefined && maxPrice !== undefined) {
-//     andCondition.push({
-//       price: {
-//         $gte: minPrice,
-//         $lte: maxPrice,
-//       },
-//     });
-//   }
+  const sortConditions: { [key: string]: SortOrder } = {};
 
-//   if (Object.keys(filtersData).length) {
-//     andCondition.push({
-//       $and: Object.entries(filtersData).map(([field, value]) => ({
-//         [field]: value,
-//       })),
-//     });
-//   }
+  if (sortBy && sortOrder) {
+    sortConditions[sortBy] = sortOrder;
+  }
 
-//   const { page, limit, skip, sortBy, sortOrder } =
-//     paginationHelpers.calculatePagination(paginationOption);
+  const whereCondition = andCondition.length > 0 ? { $and: andCondition } : {};
 
-//   const sortConditions: { [key: string]: SortOrder } = {};
+  const result = await Book.find(whereCondition)
+    .populate('user')
+    .sort(sortConditions)
+    .skip(skip)
+    .limit(limit);
 
-//   if (sortBy && sortOrder) {
-//     sortConditions[sortBy] = sortOrder;
-//   }
+  const total = await Book.countDocuments(whereCondition);
 
-//   const whereCondition = andCondition.length > 0 ? { $and: andCondition } : {};
-
-//   const result = await Cow.find(whereCondition)
-//     .populate('seller')
-//     .sort(sortConditions)
-//     .skip(skip)
-//     .limit(limit);
-
-//   const total = await Cow.countDocuments(whereCondition);
-
-//   return {
-//     meta: {
-//       page,
-//       limit,
-//       total,
-//     },
-//     data: result,
-//   };
-// };
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
 
 // const getSingleCow = async (id: string): Promise<ICow | null> => {
 //   const result = await Cow.findById(id).populate('seller');
@@ -161,6 +143,7 @@ const createBook = async (book: IBook): Promise<IBook | null> => {
 
 export const BookService = {
   createBook,
+  getAllBooks,
   //   getAllCows,
   //   getSingleCow,
   //   deleteCow,
