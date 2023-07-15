@@ -15,13 +15,11 @@ router.post(
   BookController.createBook,
 );
 
-router.post(
-  '/comment/:id',
-  // validateRequest(BookValidation.bookZodSchema),
-  BookController.createComment,
-);
+router.post('/comment/:id', BookController.createComment);
 
 router.get('/', BookController.getAllBooks);
+
+router.get('/comment/:id', BookController.getComment);
 
 router.get('/:id', BookController.getSingleBook);
 

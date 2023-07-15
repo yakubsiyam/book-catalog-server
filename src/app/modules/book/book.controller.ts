@@ -81,6 +81,19 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getComment = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await BookService.getComment(id);
+
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Comment retrieved successfully',
+    data: result,
+  });
+});
+
 const updateBook = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const updatedData = req.body;
@@ -135,6 +148,7 @@ export const BookController = {
   createComment,
   getAllBooks,
   getSingleBook,
+  getComment,
   updateBook,
   deleteBook,
 };
