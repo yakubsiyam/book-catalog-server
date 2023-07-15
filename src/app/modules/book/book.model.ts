@@ -26,7 +26,11 @@ export const BookSchema = new Schema<IBook, BookModel>(
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      required: false,
+    },
+    comments: {
+      type: Array,
+      required: false,
     },
   },
   {

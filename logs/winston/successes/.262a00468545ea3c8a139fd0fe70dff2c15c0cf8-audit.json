@@ -54,6 +54,16 @@
             "date": 1689420021155,
             "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-15-07-17-success.log",
             "hash": "9821781303ddefd32c092372a1b473d9d1be5e464a03a6ae7334cb1aa17e7dd5"
+        },
+        {
+            "date": 1689444271518,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-16-07-00-success.log",
+            "hash": "c6b476a4ceba1451fae1945010dfb09b08b07ee95c0dbe86bb31389d27f1932a"
+        },
+        {
+            "date": 1689447746643,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-16-07-01-success.log",
+            "hash": "62cbca4c1b3b09bbb89478d5a87f29b34712f05548126ec7aa28d7eb596b7f45"
         }
     ],
     "hashType": "sha256"

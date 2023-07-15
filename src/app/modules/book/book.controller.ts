@@ -31,6 +31,27 @@ const createBook: RequestHandler = catchAsync(
   },
 );
 
+const createComment = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const commentData = req.body.comments;
+
+  console.log(id, commentData);
+
+  const isBookExist = await Book.findById(id);
+  if (!isBookExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Book does not exist');
+  }
+
+  const result = await BookService.createComment(id, commentData);
+
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Comment Added Successfully',
+    data: result,
+  });
+});
+
 const getAllBooks = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, bookFilterableFields);
 
@@ -55,7 +76,7 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IBook>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Cow retrieved successfully',
+    message: 'Book retrieved successfully',
     data: result,
   });
 });
@@ -111,6 +132,7 @@ const deleteBook = catchAsync(async (req: Request, res: Response) => {
 
 export const BookController = {
   createBook,
+  createComment,
   getAllBooks,
   getSingleBook,
   updateBook,

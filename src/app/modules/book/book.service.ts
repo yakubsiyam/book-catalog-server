@@ -11,7 +11,7 @@ import httpStatus from 'http-status';
 // import { cowSearchableFields } from '../../../constants/searchableFields';
 // import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IBook, IBookFilter } from './book.interface';
-import { User } from '../user/user.model';
+// import { User } from '../user/user.model';
 import { Book } from './book.model';
 import {
   IGenericResponse,
@@ -22,12 +22,12 @@ import { paginationHelpers } from '../../../helpers/paginationHelpers';
 import { SortOrder } from 'mongoose';
 
 const createBook = async (book: IBook): Promise<IBook | null> => {
-  const userDetails = await User.findById(book.user);
+  // const userDetails = await User.findById(book.user);
   //   console.log(userDetails);
 
-  if (!userDetails) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
-  }
+  // if (!userDetails) {
+  //   throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
+  // }
 
   let newBookAllData = null;
 
@@ -59,6 +59,21 @@ const createBook = async (book: IBook): Promise<IBook | null> => {
   //   }
 
   return newBookAllData;
+};
+
+const createComment = async (
+  id: string,
+  payload: Partial<IBook>,
+): Promise<IBook | null> => {
+  const result = await Book.findOneAndUpdate(
+    { _id: id },
+    { $push: { comments: payload } },
+    {
+      new: true,
+    },
+  );
+
+  return result;
 };
 
 const getAllBooks = async (
@@ -144,6 +159,7 @@ const deleteBook = async (id: string): Promise<IBook | null> => {
 
 export const BookService = {
   createBook,
+  createComment,
   getAllBooks,
   getSingleBook,
   updateBook,
