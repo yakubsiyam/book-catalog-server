@@ -19,6 +19,10 @@ export const BookSchema = new Schema<IBook, BookModel>(
       type: String,
       required: true,
     },
+    img: {
+      type: String,
+      required: false,
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',

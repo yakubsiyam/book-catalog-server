@@ -1,45 +1,60 @@
 {
-  "keep": {
-    "days": true,
-    "amount": 14
-  },
-  "auditLog": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/.262a00468545ea3c8a139fd0fe70dff2c15c0cf8-audit.json",
-  "files": [
-    {
-      "date": 1689315681573,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-12-success.log",
-      "hash": "bec72f386f9cdb42075ce468b52ce01c816cb7f6b1c1f030ff3da1d56f801fc4"
+    "keep": {
+        "days": true,
+        "amount": 14
     },
-    {
-      "date": 1689323483495,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-14-success.log",
-      "hash": "7776600150b99b426909e19570a64b7e40458ba47421f018ccb7b5855c26e9c8"
-    },
-    {
-      "date": 1689325507271,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-15-success.log",
-      "hash": "9645cc6dbf63187308406d71ed4964ee58e2e7fb8c698b952cba448cee3a8e8a"
-    },
-    {
-      "date": 1689328843739,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-16-success.log",
-      "hash": "5f112ab65c982c77ad434d6282025ab40d89db0b2ba98fc4ebdd64dd548f3e46"
-    },
-    {
-      "date": 1689335995225,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-17-success.log",
-      "hash": "b58fb0aeeaa9cf026f76c9e64c5110f5c096d8ded874706a02f2935dc7b99b4b"
-    },
-    {
-      "date": 1689336014552,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-18-success.log",
-      "hash": "c9b4e2289179af8f57065db59e06f184ef63ec9b614f45168be7c7d9ef99dc89"
-    },
-    {
-      "date": 1689350585050,
-      "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-22-success.log",
-      "hash": "69b912a716a742af2c3b5425ae9b9a46695f76ce49edf3dc5c9722dfb45a8c45"
-    }
-  ],
-  "hashType": "sha256"
+    "auditLog": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/.262a00468545ea3c8a139fd0fe70dff2c15c0cf8-audit.json",
+    "files": [
+        {
+            "date": 1689315681573,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-12-success.log",
+            "hash": "bec72f386f9cdb42075ce468b52ce01c816cb7f6b1c1f030ff3da1d56f801fc4"
+        },
+        {
+            "date": 1689323483495,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-14-success.log",
+            "hash": "7776600150b99b426909e19570a64b7e40458ba47421f018ccb7b5855c26e9c8"
+        },
+        {
+            "date": 1689325507271,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-15-success.log",
+            "hash": "9645cc6dbf63187308406d71ed4964ee58e2e7fb8c698b952cba448cee3a8e8a"
+        },
+        {
+            "date": 1689328843739,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-16-success.log",
+            "hash": "5f112ab65c982c77ad434d6282025ab40d89db0b2ba98fc4ebdd64dd548f3e46"
+        },
+        {
+            "date": 1689335995225,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-17-success.log",
+            "hash": "b58fb0aeeaa9cf026f76c9e64c5110f5c096d8ded874706a02f2935dc7b99b4b"
+        },
+        {
+            "date": 1689336014552,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-18-success.log",
+            "hash": "c9b4e2289179af8f57065db59e06f184ef63ec9b614f45168be7c7d9ef99dc89"
+        },
+        {
+            "date": 1689350585050,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-14-07-22-success.log",
+            "hash": "69b912a716a742af2c3b5425ae9b9a46695f76ce49edf3dc5c9722dfb45a8c45"
+        },
+        {
+            "date": 1689403386111,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-15-07-12-success.log",
+            "hash": "bfe61913853c4147a2e5043296f8b48a7ac6e1e743c50cd4c26d656a387c19e0"
+        },
+        {
+            "date": 1689410821769,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-15-07-14-success.log",
+            "hash": "af14ed3a75f9c5775c372c7e0496a0082d88324a71cd1ec5a055e28cd2f4816b"
+        },
+        {
+            "date": 1689420021155,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/successes/book-2023-15-07-17-success.log",
+            "hash": "9821781303ddefd32c092372a1b473d9d1be5e464a03a6ae7334cb1aa17e7dd5"
+        }
+    ],
+    "hashType": "sha256"
 }
