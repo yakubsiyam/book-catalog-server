@@ -23,6 +23,10 @@ export const BookSchema = new Schema<IBook, BookModel>(
       type: String,
       required: false,
     },
+    userEmail: {
+      type: String,
+      required: true,
+    },
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',

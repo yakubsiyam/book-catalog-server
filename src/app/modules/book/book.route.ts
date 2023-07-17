@@ -19,6 +19,8 @@ router.post('/comment/:id', BookController.createComment);
 
 router.get('/', BookController.getAllBooks);
 
+router.get('/my-book/:userEmail', BookController.getSpecificAllBooks);
+
 router.get('/comment/:id', BookController.getComment);
 
 router.get('/:id', BookController.getSingleBook);

@@ -13,6 +13,7 @@ export type IBook = {
   img?: string;
   user?: Types.ObjectId | IUser;
   comments?: IComment[];
+  userEmail: string;
 };
 
 export type BookModel = Model<IBook, Record<string, unknown>>;

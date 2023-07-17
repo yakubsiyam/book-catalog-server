@@ -14,6 +14,9 @@ const bookZodSchema = z.object({
     publicationDate: z.string({
       required_error: 'Publication Date is required',
     }),
+    userEmail: z.string({
+      required_error: 'User Email Date is required',
+    }),
     user: z.string().optional(),
   }),
 });

@@ -142,6 +142,12 @@ const getComment = async (id: string): Promise<IBook | null> => {
   return result;
 };
 
+const getSpecificAllBooks = async (userEmail: string): Promise<IBook[]> => {
+  const result = await Book.find({ userEmail: userEmail });
+
+  return result;
+};
+
 const updateBook = async (
   id: string,
   payload: Partial<IBook>,
@@ -170,4 +176,5 @@ export const BookService = {
   getComment,
   updateBook,
   deleteBook,
+  getSpecificAllBooks,
 };
