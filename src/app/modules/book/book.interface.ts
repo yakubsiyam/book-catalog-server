@@ -14,6 +14,7 @@ export type IBook = {
   user?: Types.ObjectId | IUser;
   comments?: IComment[];
   userEmail: string;
+  _id: string;
 };
 
 export type BookModel = Model<IBook, Record<string, unknown>>;

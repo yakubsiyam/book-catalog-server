@@ -93,7 +93,7 @@ const getAllBooks = async (
     });
   }
 
-  const { page, limit, skip, sortBy, sortOrder } =
+  const { sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOption);
 
   const sortConditions: { [key: string]: SortOrder } = {};
@@ -106,16 +106,12 @@ const getAllBooks = async (
 
   const result = await Book.find(whereCondition)
     .populate('user')
-    .sort(sortConditions)
-    .skip(skip)
-    .limit(limit);
+    .sort(sortConditions);
 
   const total = await Book.countDocuments(whereCondition);
 
   return {
     meta: {
-      page,
-      limit,
       total,
     },
     data: result,

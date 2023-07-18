@@ -4,7 +4,6 @@ import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
-import { errorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import handleCastError from '../../errors/handleCastError';
 import handleValidationError from '../../errors/handleValidationError';
@@ -19,7 +18,7 @@ const globalErrorHandler: ErrorRequestHandler = (
 ) => {
   config.env == 'development'
     ? console.log('global error handler', error)
-    : errorLogger.error('global error handler', error);
+    : console.log('global error handler', error);
 
   let statusCode = 500;
   let message = 'Something went wrong !';
