@@ -84,6 +84,31 @@
             "date": 1689657602724,
             "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-11-error.log",
             "hash": "12359780bba137160c304c78097bf08baef2e7fadd9816c8d74b2588e746e20e"
+        },
+        {
+            "date": 1689660582578,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-12-error.log",
+            "hash": "4263e03891cf287e85d6fca97a0fe6149a8dc4f0a890b8cfb0a98ade3274d018"
+        },
+        {
+            "date": 1689663758183,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-13-error.log",
+            "hash": "33e3280d4cae211ce6029cc3d6c8db2d0b8cbb3e0632100b08304fe87bf579b5"
+        },
+        {
+            "date": 1689667339297,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-14-error.log",
+            "hash": "3512d59fc9888e42de6e286708892ebc12c59ce85d401c98d89722d6c2395ce8"
+        },
+        {
+            "date": 1689681276456,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-17-error.log",
+            "hash": "baff308c80c48c8c9be2e1b236cbbbd50c1646fdd3d8d395582fb60f57716501"
+        },
+        {
+            "date": 1689681863194,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-18-error.log",
+            "hash": "54858e2ee7d70f64aee4558bdb423991e9b316c30a8d0601970e980ce861954f"
         }
     ],
     "hashType": "sha256"
