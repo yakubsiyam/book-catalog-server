@@ -1,17 +1,7 @@
 import mongoose from 'mongoose';
-// import { ICow, ICowFilter } from './cow.interface';
-// import { Cow } from './cow.model';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
-// import { User } from '../user/user.model';
-// import {
-//   IGenericResponse,
-//   IPaginationOption,
-// } from '../../../interfaces/pagination';
-// import { cowSearchableFields } from '../../../constants/searchableFields';
-// import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IBook, IBookFilter } from './book.interface';
-// import { User } from '../user/user.model';
 import { Book } from './book.model';
 import {
   IGenericResponse,

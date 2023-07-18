@@ -9,13 +9,6 @@ import { paginationFields } from '../../../constants/pagination';
 import { IBook } from './book.interface';
 import { Book } from './book.model';
 import ApiError from '../../../errors/ApiError';
-// import { CowService } from './cow.service';
-// import { ICow } from './cow.interface';
-// import pick from '../../../shared/pick';
-// import { paginationFields } from '../../../constants/pagination';
-// import { cowFilterableFields } from '../../../constants/filterableFields';
-// import ApiError from '../../../errors/ApiError';
-// import { Cow } from './cow.model';
 
 const createBook: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {

@@ -79,6 +79,11 @@
             "date": 1689606679146,
             "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-17-07-21-error.log",
             "hash": "5edc7a2d8590afa3bc58ba133f3f6cb023236d88bafe90daf5163a6ef6387291"
+        },
+        {
+            "date": 1689657602724,
+            "name": "/home/siyam/Personal Projects/book-catalog-server/logs/winston/errors/book-2023-18-07-11-error.log",
+            "hash": "12359780bba137160c304c78097bf08baef2e7fadd9816c8d74b2588e746e20e"
         }
     ],
     "hashType": "sha256"
